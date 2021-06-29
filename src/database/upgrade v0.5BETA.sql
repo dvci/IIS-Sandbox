@@ -1,3 +1,5 @@
+use iis;
+
 CREATE TABLE patient_link
 (
   id integer primary key auto_increment,
