@@ -11,9 +11,10 @@ Added as submodules:
 - https://github.com/immregistries/codebase-client.git
 - https://github.com/immregistries/mqe-hl7-util.git
 - https://github.com/immregistries/smm-tester.git
-- https://github.com/immregistries/IIS-Sandbox.git
 
 ### Source
+Changes to source code:
+
 1. src/main/resource/hibernate.cfg.xml - change localhost to ${MYSQL_HOST_PORT}
 2. src/database/create-database.sql - change @locahost to @%
 3. src/database/upgrade v0.4.sql - prepend use iis;
@@ -24,12 +25,8 @@ Update dependencies to latest versions for repos that do not provide tagged vers
 1. IIS HL7 Tester and Simple Message Mover 2.30.1 - > 2.30.2 (or latest)
 
 ## Build and deploy
-### Clone repository
-    git clone https://github.com/dvci/IIS-Sandbox.git
-
-### Clone submodules
-    git submodule init
-    git submodule update
+### Clone repository and submodules
+    git clone --recursive https://github.com/dvci/IIS-Sandbox.git
 
 ### Aggregator POM
 Run following to build and install dependencies from submodule repositories.
@@ -41,7 +38,7 @@ Run following to build and install main repository.
 
     mvn install -Dmaven.test.skip=true    
 
-### Container
+### Containers
     docker-compose up -d
 
 ## Run webapp
