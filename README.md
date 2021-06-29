@@ -2,6 +2,15 @@
 
 Requires JDK 8
 
+## Build and deploy
+Clone repository and submodules, build image and deploy containers
+
+    git clone --recursive https://github.com/dvci/IIS-Sandbox.git  
+    docker compose up -d
+
+## Run webapp
+http://localhost:8081/iis-sandbox/
+
 ## IIS-sandbox changes
 ### Repository
 Added as submodules:
@@ -21,25 +30,5 @@ Changes to source code:
 4. src/database/upgrade v0.5BETA.sql - prepend use iis;
 
 ### POM
-Update dependencies to latest versions for repos that do not provide tagged versions or releases:
-1. IIS HL7 Tester and Simple Message Mover 2.30.1 - > 2.30.2 (or latest)
-
-## Build and deploy
-### Clone repository and submodules
-    git clone --recursive https://github.com/dvci/IIS-Sandbox.git
-
-### Aggregator POM
-Run following to build and install dependencies from submodule repositories.
-    
-    mvn -f aggregator_pom.xml install -Dmaven.test.skip=true
-
-### POM
-Run following to build and install main repository.
-
-    mvn install -Dmaven.test.skip=true    
-
-### Containers
-    docker-compose up -d
-
-## Run webapp
-http://localhost:8081/iis-sandbox/
+Update any submodule dependencies to latest versions for repos that do not provide tagged versions or releases:
+1. IIS HL7 Tester and Simple Message Mover 2.30.1 - > 2.30.3 (or latest)
