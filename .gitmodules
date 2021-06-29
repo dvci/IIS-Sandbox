@@ -1,0 +1,18 @@
+[submodule "swp-mds-client"]
+	path = swp-mds-client
+	url = https://github.com/usnistgov/swp-mds-client.git
+[submodule "vaccination_deduplication"]
+	path = vaccination_deduplication
+	url = https://github.com/usnistgov/vaccination_deduplication.git
+[submodule "VaccineForecastConnector"]
+	path = VaccineForecastConnector
+	url = https://github.com/immregistries/VaccineForecastConnector.git
+[submodule "codebase-client"]
+	path = codebase-client
+	url = https://github.com/immregistries/codebase-client.git
+[submodule "mqe-hl7-util"]
+	path = mqe-hl7-util
+	url = https://github.com/immregistries/mqe-hl7-util.git
+[submodule "smm-tester"]
+	path = smm-tester
+	url = https://github.com/immregistries/smm-tester.git

@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+    db:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_HOST_PORT: db:3306
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./src/database/create-database.sql:/docker-entrypoint-initdb.d/create-database.sql
+            - ./src/database/upgrade v0.4.sql:/docker-entrypoint-initdb.d/upgrade v0.4.sql
+            - ./src/database/upgrade v0.5BETA.sql:/docker-entrypoint-initdb.d/upgrade v0.5BETA.sql
+    web:
+        depends_on:
+            - db
+        image: tomcat:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_HOST_PORT: db:3306
+            CATALINA_OPTS: -DMYSQL_HOST_PORT=db:3306
+        ports:
+            - "8081:8080"
+        volumes:
+            - ./target/iis-sandbox.war:/usr/local/tomcat/webapps/iis-sandbox.war
