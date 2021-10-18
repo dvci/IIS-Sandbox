@@ -11,6 +11,6 @@ COPY aggregator_pom.xml /usr/src/app
 RUN mvn -f /usr/src/app/aggregator_pom.xml install -Dmaven.test.skip=true
 RUN mvn -f /usr/src/app/pom.xml clean package -Dmaven.test.skip=true
 
-FROM tomcat:jdk8-openjdk
+FROM tomcat:9
 COPY --from=build /usr/src/app/target/iis-sandbox.war $CATALINA_HOME/webapps
 EXPOSE 8080
